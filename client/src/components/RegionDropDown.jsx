@@ -11,11 +11,11 @@ function RegionDropDown() {
 
 
     return (
-        <div className="relative inline-block text-left mr-auto py-5 px-4">
+        <div className="relative inline-block text-left mr-auto py-5">
             <div>
                 <button
                     type="button"
-                    className="inline-flex w-full justify-center gap-x-1.5 rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                    className="inline-flex w-full justify-center gap-x-1.5 rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm ring-1 ring-inset ring-gray-800 hover:bg-gray-50"
                     id="menu-button"
                     aria-expanded={menuOpen ? "true" : "false"}
                     aria-haspopup="true"
@@ -50,4 +50,4 @@ function RegionDropDown() {
     )
 }
 
-export default RegionDropDown
+export default RegionDropDown;
