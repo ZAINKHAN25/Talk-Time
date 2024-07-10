@@ -11,11 +11,11 @@ function RegionDropDown() {
 
 
     return (
-        <div className="relative inline-block text-left mr-auto py-5">
+        <div className="relative inline-block text-left mr-auto py-5 text-gray-700">
             <div title='Server'>
                 <button
                     type="button"
-                    className="inline-flex w-full justify-center gap-x-1.5 rounded-full px-3 py-2 text-sm font-semibol shadow-sm ring-1 ring-inset ring-gray-950 hover:bg-gray-50"
+                    className="inline-flex w-full justify-center gap-x-1.5 rounded-full px-3 py-2 text-sm font-semibol shadow-sm ring-1 ring-inset ring-gray-700 transition-all hover:scale-105 hover:shadow-lg active:bg-blue-50"
                     id="menu-button"
                     aria-expanded={menuOpen ? "true" : "false"}
                     aria-haspopup="true"
@@ -30,13 +30,13 @@ function RegionDropDown() {
             {
                 menuOpen && (
                     <div
-                        className="absolute left-4 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                        className="absolute left-4 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-gray-700 ring-opacity-40 focus:outline-none"
                         role="menu"
                         aria-orientation="vertical"
                         aria-labelledby="menu-button"
                         tabIndex="-1"
                     >
-                        <div className="py-1" role="none">
+                        <div className="py-1 flex-col flex" role="none">
                             <a href="#" className="RegionDropDownLIs" role="menuitem" tabIndex="-1" id="menu-item-0">Pakistan</a>
                             <a href="#" className="RegionDropDownLIs" role="menuitem" tabIndex="-1" id="menu-item-0">India</a>
                             <a href="#" className="RegionDropDownLIs" role="menuitem" tabIndex="-1" id="menu-item-0">U K</a>
