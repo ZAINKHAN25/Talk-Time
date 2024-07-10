@@ -5,7 +5,7 @@ import LandingJoiningSections from "../components/LandingJoiningSections.jsx";
 
 function LandingPage() {
   return (
-    <div className="flex flex-col items-center w-screen min-h-screen px-16 bg-gradient-to-r from-blue-100 to-cyan-100 ">
+    <div className="flex flex-col items-center w-screen min-h-screen px-16 bg-gradient-to-r from-blue-100 to-cyan-100">
 
       <RegionDropDown />
       <div
