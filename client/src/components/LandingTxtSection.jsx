@@ -2,9 +2,9 @@ import React from 'react'
 
 function LandingTxtSection() {
     return (
-        <div className="flex flex-col justify-center items-center w-2/4">
+        <div className="flex flex-col justify-center items-center w-2/4 text-blue-500">
             <h1
-                className="text-6xl"
+                className="text-6xl mr-auto"
             >
                 Welcome to Talk_Time:
             </h1>
