@@ -18,7 +18,7 @@ function LandingJoiningSections() {
                     <TiArrowSync size={23} />
                 </div>
             </div>
-            <input type="text" placeholder="Profile Name" className="w-4/6 p-4 py-2 my-5 rounded-xl transition-all outline-none hover:scale-105 hover:shadow-md" />
+            <input type="text" placeholder="Profile Name" className="w-4/6 p-4 py-2 my-5 rounded-xl transition-all outline-none hover:scale-105 hover:shadow-md focus:ring-gray-700 focus:ring-1" />
 
             <button type="button"
                 className="w-4/6  transition-all text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mb-5">

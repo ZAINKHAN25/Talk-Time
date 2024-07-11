@@ -1,5 +1,6 @@
 import React from 'react';
 import NavbarComponent from "../components/NavbarComponent.jsx";
+import FilteringPublicRooms from "../components/FilteringPublicRooms.jsx";
 
 
 
@@ -10,6 +11,7 @@ function PublicMeetsPage() {
     >
 
         <NavbarComponent pageName={"Public Meets"} />
+        <FilteringPublicRooms />
 
     </div>
   )
