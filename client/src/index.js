@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals.js";
 import LandingPage from './screens/LandingPage.jsx';
 import PublicMeetsPage from './screens/PublicMeetsPage.jsx';
 import JoinPublicMeetPage from './screens/JoinPublicMeetPage.jsx';
+import JoinPrivateMeetPage from './screens/JoinPrivateMeetPage.jsx';
 
 import {
   createBrowserRouter,
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/join-meet",
     element: <JoinPublicMeetPage />,
+  },
+  {
+    path: "/private-meet",
+    element: <JoinPrivateMeetPage />,
   },
 ]);
 
