@@ -1,17 +1,32 @@
 import React from 'react';
+
 import NavbarComponent from "../components/NavbarComponent.jsx";
 import FilteringPublicRooms from "../components/FilteringPublicRooms.jsx";
+import SinglePublicRoom from "../components/SinglePublicRoom.jsx";
+import PublicRoomDummyData from '../PublicRoomDummyData.js';
 
 
 
 function PublicMeetsPage() {
   return (
-    <div
-      className='flex flex-col items-center w-screen min-h-screen px-16 bg-gradient-to-r from-blue-100 to-cyan-100'
-    >
+    <div className='bg-gradient-to-r from-blue-100 to-cyan-100 overflow-x-hidden'>
+
+      <div
+        className='container  flex flex-col items-center w-screen min-h-screen mx-auto my-2'
+      >
 
         <NavbarComponent pageName={"Public Meets"} />
         <FilteringPublicRooms />
+
+        {
+          PublicRoomDummyData.map((x, i) => {
+            return (
+              <SinglePublicRoom key={i} data={x} />
+            )
+          })
+        }
+
+      </div>
 
     </div>
   )

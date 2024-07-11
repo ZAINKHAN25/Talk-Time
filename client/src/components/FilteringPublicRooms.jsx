@@ -54,10 +54,13 @@ function FilteringPublicRooms() {
 
             <input type="text" placeholder="Search Room" className="flex-1 p-4 py-2 mx-2 rounded-xl scale-90 transition-all outline-none hover:scale-95 hover:shadow-md focus:ring-gray-700 focus:ring-1" />
 
-            <button type="button"
-                className="transition-all text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-2 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30">
+            <button
+                type="button"
+                className="text-white transition-all bg-[#2567D9]/70 hover:bg-[#2557D6] none font-medium rounded-lg text-sm px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2"
+            >
                 Create Meet
             </button>
+
         </div>
     )
 }
