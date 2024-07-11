@@ -12,7 +12,7 @@ function FilteringPublicRooms() {
 
 
     return (
-        <div className='px-5 py-3 my-2 shadow-[1px_1px_15px_5px_rgba(255,255,255,0.8)] rounded-md w-full border-2 border-gray-600/5 backdrop-blur-sm flex justify-between items-center'>
+        <div className='px-5 py-3 my-2 shadow-[1px_1px_15px_5px_rgba(255,255,255,0.8)] rounded-md w-full border-2 border-gray-600/5  flex justify-between items-center'>
 
             <div className="relative inline-block text-left mr-auto text-gray-700">
 
