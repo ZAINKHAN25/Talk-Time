@@ -30,7 +30,11 @@ function LandingJoiningSections() {
                 className="w-4/6 p-4 py-2 my-5 rounded-xl transition-all outline-none hover:scale-105 hover:shadow-md focus:ring-gray-700 focus:ring-1"
             />
 
-            <button type="button" className="w-4/6  transition-all text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mb-5" >
+            <button
+                type="button"
+                className="w-4/6  transition-all text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mb-5"
+                onClick={() => navigateTo('/public/:zain')}
+            >
                 Quick Start
             </button>
             <div className="flex justify-between items-center w-4/6">
@@ -38,7 +42,7 @@ function LandingJoiningSections() {
                     type="button"
                     onClick={() => navigateTo('/public-meets')}
                     className="w-2/4 text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
-                    >
+                >
                     Public Meets
                 </button>
                 <button
