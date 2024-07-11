@@ -5,16 +5,19 @@ import LandingJoiningSections from "../components/LandingJoiningSections.jsx";
 
 function LandingPage() {
   return (
-    <div className="flex flex-col items-center w-screen min-h-screen px-16 bg-gradient-to-r from-blue-100 to-cyan-100">
+    <div className="bg-gradient-to-r from-blue-100 to-cyan-100 overflow-x-hidden px-2">
 
-      <RegionDropDown />
-      <div
-        className="flex flex-col-reverse justify-between items-center flex-1 w-full h-full sm:flex-row"
-      >
-        <LandingTxtSection />
-        <LandingJoiningSections />
+      <div className="container flex flex-col items-center w-full min-h-screen my-2 mx-auto">
+
+        <RegionDropDown />
+        <div
+          className="flex flex-col-reverse justify-between items-center flex-1 w-full h-full sm:flex-row"
+        >
+          <LandingTxtSection />
+          <LandingJoiningSections />
+        </div>
+
       </div>
-      
     </div>
   );
 }

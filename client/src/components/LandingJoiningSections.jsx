@@ -51,7 +51,12 @@ function LandingJoiningSections() {
 
             </div>
 
-            <p className="mt-3 cursor-pointer transition-all hover:scale-105">Get an invite code?</p>
+            <p
+                className="mt-3 cursor-pointer transition-all hover:scale-105"
+                onClick={() => navigateTo('/join-meet')}
+            >
+                Get an invite code?
+            </p>
 
         </div>
     )
