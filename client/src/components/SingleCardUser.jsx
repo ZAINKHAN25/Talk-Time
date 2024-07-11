@@ -4,7 +4,8 @@ import { CiMicrophoneOff, CiMicrophoneOn } from "react-icons/ci";
 function SingleCardUser({ data }) {
     return (
         <div
-            className="flex items-center justify-center p-5 bg-white/5 m-2 rounded-lg w-96 min-w-10 h-80 relative"
+            className="flex items-center justify-center p-5 transition-all bg-white/5 m-2 rounded-lg w-96 min-w-10 relative"
+            style={{height: "500px", minHeight: "200px"}}
         >
             <p className='text-2xl'>
                 {data.name}

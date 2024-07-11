@@ -10,7 +10,7 @@ import MeetDummyData from "../MeetDummyData.js";
 
 function PublicMeet() {
 
-    let currentClicked = "chat";
+    let currentClicked = "participants";
 
 
     return (

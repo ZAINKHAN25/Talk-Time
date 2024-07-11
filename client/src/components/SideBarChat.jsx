@@ -6,7 +6,7 @@ import { FaPaperPlane } from "react-icons/fa";
 
 function SideBarChat() {
     return (
-        <div className='bg-white/5 max-w-full min-w-80 h-full border-[rgba(255,255,255,0.1)] border transition-all flex flex-col justify-center items-center'>
+        <div className='bg-white/5 max-w-full min-w-80 h-full max-h-screen border-[rgba(255,255,255,0.1)] border transition-all flex flex-col justify-center items-center'>
             <div className='border-[rgba(255,255,255,0.1)] border w-full px-5 py-4 text-base font-semibold flex justify-between items-center'>
                 <p>Chats</p>
                 <span className='rounded-full p-2 cursor-pointer bg-[#1b1a1d] transition-all hover:bg-blue-500'><RxCross2 size={20}/></span>
