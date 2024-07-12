@@ -6,7 +6,7 @@ function LandingTxtSection() {
             <h1
                 className="text-6xl mr-auto"
             >
-                Welcome to Talk_Time:
+                Welcome to Gather-Meet:
             </h1>
             <h4 className="mt-5 text-base">
                 The place where you can meet and chat with strangers without signing up. Connect, make friends, and explore new conversations effortlessly.
