@@ -52,7 +52,7 @@ function FilteringPublicRooms() {
                 }
             </div>
 
-            <input type="text" placeholder="Search Room" className="flex-1 w-full p-4 py-2 rounded-xl scale-90 transition-all outline-none hover:scale-95 hover:shadow-md focus:ring-gray-700 focus:ring-1" />
+            <input type="text" placeholder="Room name" className="flex-1 w-full p-4 py-2 rounded-xl scale-100 transition-all outline-none hover:scale-100 hover:shadow-md focus:ring-gray-700 focus:ring-1 sm:scale-90" />
 
             <button
                 type="button"
