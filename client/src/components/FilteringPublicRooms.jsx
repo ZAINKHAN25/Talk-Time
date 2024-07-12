@@ -12,15 +12,15 @@ function FilteringPublicRooms() {
 
 
     return (
-        <div className='px-5 py-3 my-2 shadow-[1px_1px_15px_5px_rgba(255,255,255,0.8)] rounded-md w-full border-2 border-gray-600/5  flex justify-between items-center'>
+        <div className='flex flex-col justify-center items-center flex-wrap gap-4 container px-5 py-3 my-2 mx-auto shadow-[1px_1px_15px_5px_rgba(255,255,255,0.8)] rounded-md w-full border-2 border-gray-600/5 sm:flex-row sm:w-full'>
 
-            <div className="relative inline-block text-left mr-auto text-gray-700">
+            <div className="relative w-full inline-block text-gray-700 sm:w-max">
 
 
-                <div title='Server'>
+                <div className='w-full' title='Server'>
                     <button
                         type="button"
-                        className="inline-flex justify-center gap-x-1.5 rounded-full px-3 py-2 text-sm font-semibol shadow-sm ring-1 ring-inset ring-gray-700 transition-all hover:scale-105 hover:shadow-lg active:bg-blue-50"
+                        className="inline-flex w-full justify-center gap-x-1.5 rounded-full px-3 py-2 text-sm font-semibol shadow-sm ring-1 ring-inset ring-gray-700 transition-all hover:scale-105 hover:shadow-lg active:bg-blue-50"
                         id="menu-button"
                         aria-expanded={menuOpen ? "true" : "false"}
                         aria-haspopup="true"
@@ -52,11 +52,11 @@ function FilteringPublicRooms() {
                 }
             </div>
 
-            <input type="text" placeholder="Search Room" className="flex-1 p-4 py-2 mx-2 rounded-xl scale-90 transition-all outline-none hover:scale-95 hover:shadow-md focus:ring-gray-700 focus:ring-1" />
+            <input type="text" placeholder="Search Room" className="flex-1 w-full p-4 py-2 rounded-xl scale-90 transition-all outline-none hover:scale-95 hover:shadow-md focus:ring-gray-700 focus:ring-1" />
 
             <button
                 type="button"
-                className="text-white transition-all bg-[#2567D9]/70 hover:bg-[#2557D6] none font-medium rounded-lg text-sm px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2"
+                className="text-white transition-all bg-[#2567D9]/70 hover:bg-[#2557D6] none font-medium rounded-lg text-sm px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-[#2557D6]/50 me-2"
             >
                 Create Meet
             </button>
