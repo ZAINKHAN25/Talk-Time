@@ -34,7 +34,7 @@ function LandingJoiningSections() {
             <button
                 type="button"
                 className="sm:w-3/5 w-full transition-all text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mb-5"
-                onClick={() => navigateTo('/public/:zain')}
+                onClick={() => navigateTo('/public/zain')}
             >
                 Quick Start
             </button>

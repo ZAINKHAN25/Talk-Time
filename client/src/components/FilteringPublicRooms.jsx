@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 function FilteringPublicRooms() {
+
+    const navigateTo = useNavigate();
 
 
     const [menuOpen, setMenuOpen] = useState(false);
@@ -52,10 +57,18 @@ function FilteringPublicRooms() {
                 }
             </div>
 
-            <input type="text" placeholder="Room name" className="flex-1 w-full p-4 py-2 rounded-xl scale-100 transition-all outline-none hover:scale-100 hover:shadow-md focus:ring-gray-700 focus:ring-1 sm:scale-90" />
+            <div className='flex-1 w-full flex gap-2'>
+                <input type="text" placeholder="Search Room..." className="flex-1 w-full p-4 py-2 rounded-xl transition-all outline-none hover:shadow-md focus:ring-gray-700 focus:ring-1" />
+                <div
+                    className="rounded-full scale-90 p-2 shadow-sm text-gray-800 border-2 border-gray-700 flex items-center justify-center transition-all cursor-pointer hover:bg-gray-700 hover:text-white hover:scale-100 hover:shadow-lg active:bg-gray-600"
+                >
+                    <FaMagnifyingGlass size={20} />
+                </div>
+            </div>
 
             <button
                 type="button"
+                onClick={() => navigateTo("/public/zain")}
                 className="text-white transition-all bg-[#2567D9]/70 hover:bg-[#2557D6] none font-medium rounded-lg text-sm px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-[#2557D6]/50 me-2"
             >
                 Create Meet

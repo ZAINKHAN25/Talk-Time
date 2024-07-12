@@ -9,7 +9,7 @@ import PublicRoomDummyData from '../PublicRoomDummyData.js';
 
 function PublicMeetsPage() {
   return (
-    <div className='bg-gradient-to-r from-blue-100 to-cyan-100'>
+    <div className='bg-gradient-to-r from-blue-100 to-cyan-100 max-w-screen overflow-x-hidden'>
 
       <div
         className='container flex flex-col items-center w-screen min-h-screen mx-auto py-5 px-3 overflow-x-hidden'

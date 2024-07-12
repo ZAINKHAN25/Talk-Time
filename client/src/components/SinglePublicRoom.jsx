@@ -1,8 +1,11 @@
 import React from 'react';
 import { MdAccountCircle } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 
 
 function SinglePublicRoom({ data }) {
+
+    const navigateTo = useNavigate();
 
     return (
         <div
@@ -28,6 +31,7 @@ function SinglePublicRoom({ data }) {
             </div>
 
             <button type="button"
+                onClick={()=>navigateTo("/public/zain")}
                 className="transition-all text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-2 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center justify-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30">
                 Join
             </button>
@@ -35,4 +39,4 @@ function SinglePublicRoom({ data }) {
     )
 }
 
-export default SinglePublicRoom
+export default SinglePublicRoom;
