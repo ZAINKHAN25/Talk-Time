@@ -6,7 +6,7 @@ function SinglePublicRoom({ data }) {
 
     return (
         <div
-            className='px-5 py-3 my-2 shadow-[1px_1px_15px_5px_rgba(255,255,255,0.8)] rounded-md w-full border-2 border-gray-600/5 flex flex-wrap items-center gap-10 mx-2'
+            className='px-5 py-3 my-2 flex-col justify-between shadow-[1px_1px_15px_5px_rgba(255,255,255,0.8)] rounded-md w-5/6 border-2 border-gray-600/5 flex flex-wrap items-center gap-4 sm:flex-row sm:gap-10 sm:w-full'
         >
             <div className='flex flex-col justify-center items-center'>
                 <MdAccountCircle size={40} />

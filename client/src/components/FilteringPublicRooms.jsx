@@ -12,7 +12,7 @@ function FilteringPublicRooms() {
 
 
     return (
-        <div className='flex flex-col justify-center items-center flex-wrap gap-4 container px-5 py-3 my-2 mx-auto shadow-[1px_1px_15px_5px_rgba(255,255,255,0.8)] rounded-md w-full border-2 border-gray-600/5 sm:flex-row sm:w-full'>
+        <div className='flex flex-col justify-center items-center flex-wrap gap-4 container px-5 py-3 my-2 mx-auto shadow-[1px_1px_15px_5px_rgba(255,255,255,0.8)] rounded-md w-5/6 border-2 border-gray-600/5 sm:flex-row sm:w-full'>
 
             <div className="relative w-full inline-block text-gray-700 sm:w-max">
 

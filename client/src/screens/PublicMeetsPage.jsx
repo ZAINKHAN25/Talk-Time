@@ -12,7 +12,7 @@ function PublicMeetsPage() {
     <div className='bg-gradient-to-r from-blue-100 to-cyan-100'>
 
       <div
-        className='container flex flex-col items-center w-screen min-h-screen mx-auto py-5 px-3'
+        className='container flex flex-col items-center w-screen min-h-screen mx-auto py-5 px-3 overflow-x-hidden'
       >
 
         <NavbarComponent pageName={"Public Meets"} />
