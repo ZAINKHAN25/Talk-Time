@@ -16,7 +16,10 @@ function SinglePublicRoom({ data }) {
             </div>
 
             <div className='flex flex-col justify-center items-center'>
-                <img src='https://cdn.britannica.com/46/3346-050-DE92F66A/flag-symbolism-Pakistan-design-Islamic.jpg' width={55} />
+                <img
+                    src='https://cdn.britannica.com/46/3346-050-DE92F66A/flag-symbolism-Pakistan-design-Islamic.jpg' width={55}
+                    alt='Country Img'
+                />
                 <p>{data.server}</p>
             </div>
 

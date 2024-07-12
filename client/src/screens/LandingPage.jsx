@@ -5,7 +5,7 @@ import LandingJoiningSections from "../components/LandingJoiningSections.jsx";
 
 function LandingPage() {
   return (
-    <div className="bg-gradient-to-r from-blue-100 to-cyan-100 overflow-x-hidden px-2">
+    <div className="bg-gradient-to-r from-blue-100 to-cyan-100 overflow-x-hidden px-3">
 
       <div className="container flex flex-col items-center w-full min-h-screen my-2 mx-auto">
 
