@@ -9,3 +9,10 @@
         @apply px-4 py-2 text-sm text-gray-600 transition-all ease-in-out hover:text-gray-900 hover:px-5 hover:bg-gray-100;
     }
 }
+
+
+@media (max-width: 785px) {
+    .landingPageMainDiv {
+        flex-direction: column !important;
+    }
+}

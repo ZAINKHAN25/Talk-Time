@@ -2,7 +2,7 @@ import React from 'react'
 
 function LandingTxtSection() {
     return (
-        <div className="flex flex-col justify-center items-center w-2/4 bg-gradient-to-br from-blue-800 to-blue-500 bg-clip-text text-transparent">
+        <div className="flex flex-1 flex-col justify-center items-center bg-gradient-to-br from-blue-800 to-blue-500 bg-clip-text text-transparent">
             <h1
                 className="text-6xl mr-auto"
             >

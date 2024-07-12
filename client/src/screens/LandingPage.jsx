@@ -11,7 +11,7 @@ function LandingPage() {
 
         <RegionDropDown />
         <div
-          className="flex flex-col-reverse justify-between items-center flex-1 w-full h-full sm:flex-row"
+          className="flex flex-col gap-3 items-center flex-1 w-full h-full sm:flex-row landingPageMainDiv"
         >
           <LandingTxtSection />
           <LandingJoiningSections />
