@@ -8,6 +8,7 @@ import PublicMeetsPage from './screens/PublicMeetsPage.jsx';
 import JoinPublicMeetPage from './screens/JoinPublicMeetPage.jsx';
 import JoinPrivateMeetPage from './screens/JoinPrivateMeetPage.jsx';
 import PublicMeet from './screens/PublicMeet.jsx';
+import NotFoundPage from './screens/NotFoundPage.jsx';
 
 import {
   createBrowserRouter,
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/public/:meetId",
     element: <PublicMeet />,
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ]);
 
