@@ -6,7 +6,7 @@ const pbMeetSchema = mongoose.Schema({
   userName: { type: String, required: true },
   userUid: { type: String, required: true },
   userServer: { type: String, required: true },
-  ranCode: { type: String, required: true, unique: true },
+  roomCode: { type: String, required: true, unique: true },
   participants: {
     name: { type: String, required: true },
     camSource: { type: String },
