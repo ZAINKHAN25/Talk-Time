@@ -79,6 +79,40 @@ async function joinPbRoom(req, res) {
   }
 };
 
+async function joinRandomPbRoom(req, res) {
+  try {
+    const { userUid } = req.body;
+    if (!userUid) {
+      return res.status(400).json({ message: 'userUid is required' });
+    }
+
+    const allMeetings = await PbRoomsModel.find().populate('participants');
+    if (allMeetings.length === 0) {
+      return res.status(404).json({ message: 'No public meetings available' });
+    }
+
+    const availableMeetings = allMeetings.filter(meeting => !meeting.participants.some(participant => participant._id == userUid));
+    if (availableMeetings.length === 0) {
+      return res.status(400).json({ message: 'User is already a participant in all public meetings' });
+    }
+
+    const randomMeeting = availableMeetings[Math.floor(Math.random() * availableMeetings.length)];
+
+    const userExists = await Participants.findById(userUid);
+    if (!userExists) {
+      return res.status(400).json({ message: 'User does not exist' });
+    }
+
+    randomMeeting.participants.push(userExists._id);
+    await randomMeeting.save();
+
+    res.status(200).json(randomMeeting);
+    
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: error.message });
+  }
+};
 async function leavePbRooms(req, res) {
   try {
     const { roomCode, userUid } = req.body;
@@ -118,7 +152,7 @@ async function leavePbRooms(req, res) {
     console.error(error);
     res.status(500).json({ message: error.message });
   }
-}
+};
 
 
-export { getAllPbRooms, joinPbRoom, addPbRooms, leavePbRooms };
+export { getAllPbRooms, joinPbRoom, addPbRooms, leavePbRooms, joinRandomPbRoom };
