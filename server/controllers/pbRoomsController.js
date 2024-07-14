@@ -1,11 +1,10 @@
 import PbRoomsModel from "../models/pbmeets.js";
 import { customAlphabet } from 'nanoid';
-import mongoose from "mongoose";
 import Participants from "../models/particpants.js";
 
 async function getAllPbRooms(req, res) {
   try {
-    const allPbRooms = await PbRoomsModel.find();
+    const allPbRooms = await PbRoomsModel.find().populate('participants');;
     res.status(200).json(allPbRooms);
   } catch (error) {
     console.error(error);
@@ -60,7 +59,7 @@ async function joinPbRoom(req, res) {
       return res.status(404).json({ message: 'Meeting not found' });
     }
 
-    const isParticipant = meeting.participants.some(participant => participant.userUid === userUid);
+    const isParticipant = meeting.participants.some(participant => participant._id == userUid);
     if (isParticipant) {
       return res.status(400).json({ message: 'User already joined the meeting' });
     }
