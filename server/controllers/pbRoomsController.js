@@ -10,7 +10,7 @@ async function getAllPbRooms(req, res) {
     console.error(error);
     res.status(404).json({ message: error.message });
   }
-}
+};
 
 async function addPbRooms(req, res) {
   try {
@@ -44,7 +44,7 @@ async function addPbRooms(req, res) {
     console.error(error);
     res.status(500).json({ message: error.message });
   }
-}
+};
 
 async function joinPbRoom(req, res) {
   try {
@@ -77,6 +77,48 @@ async function joinPbRoom(req, res) {
     console.error(error);
     res.status(500).json({ message: error.message });
   }
+};
+
+async function leavePbRooms(req, res) {
+  try {
+    const { roomCode, userUid } = req.body;
+
+    if (!roomCode || !userUid) {
+      return res.status(400).json({ message: 'roomCode and userUid are required' });
+    }
+
+    const meeting = await PbRoomsModel.findOne({ roomCode }).populate('participants');
+    if (!meeting) {
+      return res.status(404).json({ message: 'Meeting not found' });
+    }
+
+    const userIndex = meeting.participants.findIndex(participant => participant._id.toString() === userUid);
+    if (userIndex === -1) {
+      return res.status(400).json({ message: 'User is not a participant of the meeting' });
+    }
+
+    if (meeting.adminUid === userUid) {
+      if (meeting.participants.length === 1) {
+        await PbRoomsModel.deleteOne({ roomCode });
+        return res.status(200).json({ message: 'Meeting deleted as no participants are left' });
+      } else {
+        meeting.participants.splice(userIndex, 1);
+        meeting.adminUid = meeting.participants[0]._id;
+      }
+    } else {
+      meeting.participants.splice(userIndex, 1);
+    }
+
+    await meeting.save();
+
+    res.status(200).json({ message: 'User has left the meeting', meeting });
+
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: error.message });
+  }
 }
 
-export { getAllPbRooms, joinPbRoom, addPbRooms };
+
+export { getAllPbRooms, joinPbRoom, addPbRooms, leavePbRooms };
