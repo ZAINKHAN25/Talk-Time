@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const uri = process.env.API_URI;
+const uri = "mongodb+srv://zainarfeen87:HiZtOQh2yYmpBuOa@gather-meet.2onmfyk.mongodb.net/";
 
 
 mongoose.connect(uri)
