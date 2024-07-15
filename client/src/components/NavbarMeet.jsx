@@ -6,7 +6,7 @@ function NavbarMeet({ data }) {
     const navigatTo = useNavigate();
 
     return (
-        <div className="flex justify-start items-center w-full gap-10 p-3 border-[rgba(255,255,255,0.1)] border">
+        <div className="flex justify-start items-center w-screen gap-10 p-3 border-[rgba(255,255,255,0.1)] border">
             <h1 className='font-semibold text-2xl cursor-pointer' onClick={() => navigatTo("/")}>Gather_Meet:</h1>
             <div className='flex flex-col'>
                 <span className='font-bold text-xl' contentEditable={true}>
