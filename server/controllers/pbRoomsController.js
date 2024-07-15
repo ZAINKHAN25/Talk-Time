@@ -1,10 +1,10 @@
-import PbRoomsModel from "../models/pbmeets.js";
+import PbMeetsModel from "../models/pbmeets.js";
 import { customAlphabet } from 'nanoid';
 import Participants from "../models/particpants.js";
 
 async function getAllPbRooms(req, res) {
   try {
-    const allPbRooms = await PbRoomsModel.find().populate('participants');;
+    const allPbRooms = await PbMeetsModel.find().populate('participants');;
     res.status(200).json(allPbRooms);
   } catch (error) {
     console.error(error);
@@ -23,13 +23,13 @@ async function addPbRooms(req, res) {
     const nanoid = customAlphabet(alphabet, 5);
     let code = nanoid();
 
-    let existingMeeting = await PbRoomsModel.findOne({ roomCode: code });
+    let existingMeeting = await PbMeetsModel.findOne({ roomCode: code });
     while (existingMeeting) {
       code = nanoid();
-      existingMeeting = await PbRoomsModel.findOne({ roomCode: code });
+      existingMeeting = await PbMeetsModel.findOne({ roomCode: code });
     }
 
-    const newMeeting = new PbRoomsModel({
+    const newMeeting = new PbMeetsModel({
       adminUid,
       userServer,
       roomCode: code,
@@ -54,7 +54,7 @@ async function joinPbRoom(req, res) {
     }
 
 
-    const meeting = await PbRoomsModel.findOne({ roomCode }).populate('participants');
+    const meeting = await PbMeetsModel.findOne({ roomCode }).populate('participants');
     if (!meeting) {
       return res.status(404).json({ message: 'Meeting not found' });
     }
@@ -86,7 +86,7 @@ async function joinRandomPbRoom(req, res) {
       return res.status(400).json({ message: 'userUid is required' });
     }
 
-    const allMeetings = await PbRoomsModel.find().populate('participants');
+    const allMeetings = await PbMeetsModel.find().populate('participants');
     if (allMeetings.length === 0) {
       return res.status(404).json({ message: 'No public meetings available' });
     }
@@ -107,12 +107,13 @@ async function joinRandomPbRoom(req, res) {
     await randomMeeting.save();
 
     res.status(200).json(randomMeeting);
-    
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
   }
 };
+
 async function leavePbRooms(req, res) {
   try {
     const { roomCode, userUid } = req.body;
@@ -121,7 +122,7 @@ async function leavePbRooms(req, res) {
       return res.status(400).json({ message: 'roomCode and userUid are required' });
     }
 
-    const meeting = await PbRoomsModel.findOne({ roomCode }).populate('participants');
+    const meeting = await PbMeetsModel.findOne({ roomCode }).populate('participants');
     if (!meeting) {
       return res.status(404).json({ message: 'Meeting not found' });
     }
@@ -133,7 +134,7 @@ async function leavePbRooms(req, res) {
 
     if (meeting.adminUid === userUid) {
       if (meeting.participants.length === 1) {
-        await PbRoomsModel.deleteOne({ roomCode });
+        await PbMeetsModel.deleteOne({ roomCode });
         return res.status(200).json({ message: 'Meeting deleted as no participants are left' });
       } else {
         meeting.participants.splice(userIndex, 1);
@@ -154,5 +155,21 @@ async function leavePbRooms(req, res) {
   }
 };
 
+async function searchServer(req, res) {
+  try {
+    const { server } = req.body;
 
-export { getAllPbRooms, joinPbRoom, addPbRooms, leavePbRooms, joinRandomPbRoom };
+    const meetings = await PbMeetsModel.find({ userServer: server });
+    if (meetings.length > 0) {
+      res.status(200).json(meetings);
+    } else {
+      res.status(404).json({ message: 'No public meeting found on the specified server' });
+    }
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ message: error.message });
+  }
+}
+
+
+export { getAllPbRooms, joinPbRoom, addPbRooms, leavePbRooms, joinRandomPbRoom, searchServer };
