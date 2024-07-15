@@ -4,7 +4,7 @@ import Participants from "../models/particpants.js";
 
 async function getAllPbRooms(req, res) {
   try {
-    const allPbRooms = await PbMeetsModel.find().populate('participants');;
+    const allPbRooms = await PbMeetsModel.find().populate('participants').populate('comments');
     res.status(200).json(allPbRooms);
   } catch (error) {
     console.error(error);
@@ -155,6 +155,33 @@ async function leavePbRooms(req, res) {
   }
 };
 
+async function updatePbRoomHeading(req, res) {
+  try {
+    const { heading, userId, roomCode } = req.body;
+
+    if (!heading || !userId || !roomCode) {
+      return res.status(400).json({ message: 'heading, userId, and roomCode are required' });
+    }
+
+    const meeting = await PbMeetsModel.findOne({ roomCode });
+    if (!meeting) {
+      return res.status(404).json({ message: 'Meeting not found' });
+    }
+
+    if (meeting.adminUid !== userId) {
+      return res.status(403).json({ message: 'User is not authorized to update the heading' });
+    }
+
+    meeting.roomHeading = heading;
+    await meeting.save();
+
+    res.status(200).json({ message: 'Heading updated successfully', meeting });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ message: error.message });
+  }
+}
+
 async function searchServer(req, res) {
   try {
     const { server } = req.body;
@@ -172,4 +199,4 @@ async function searchServer(req, res) {
 }
 
 
-export { getAllPbRooms, joinPbRoom, addPbRooms, leavePbRooms, joinRandomPbRoom, searchServer };
+export { getAllPbRooms, joinPbRoom, addPbRooms, leavePbRooms, joinRandomPbRoom, searchServer, updatePbRoomHeading };

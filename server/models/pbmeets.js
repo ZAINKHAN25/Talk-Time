@@ -4,6 +4,7 @@ const pbMeetSchema = mongoose.Schema({
   adminUid: { type: String, required: true },
   userServer: { type: String, required: true },
   roomCode: { type: String, required: true, unique: true },
+  roomHeading: { type: String},
   participants: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Participants",
