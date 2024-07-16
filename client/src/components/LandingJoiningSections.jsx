@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import DummyNames from '../DummyNames.js';
 
 function LandingJoiningSections() {
+
     const navigateTo = useNavigate();
     const [profileName, setProfileName] = useState('');
 
@@ -14,9 +15,11 @@ function LandingJoiningSections() {
 
     return (
         <div className="flex flex-1 w-full flex-col justify-between items-center p-5 gap-5">
+
             <p className="w-full sm:w-3/5 text-lg px-2">Your Profile name:</p>
 
             <div className='w-full flex justify-center items-center sm:w-3/5'>
+            
                 <input
                     type="text"
                     value={profileName}
@@ -30,6 +33,7 @@ function LandingJoiningSections() {
                 >
                     <FaRandom size={20} />
                 </div>
+
             </div>
 
             <button
