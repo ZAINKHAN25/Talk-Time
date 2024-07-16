@@ -1,25 +1,36 @@
-import React from 'react';
-
-import { MdAccountCircle } from "react-icons/md";
-import { TiArrowSync } from "react-icons/ti";
+import React, { useState, useEffect } from 'react';
+import { FaRandom } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 
+import DummyNames from '../DummyNames.js';
 
 function LandingJoiningSections() {
-
     const navigateTo = useNavigate();
+    const [profileName, setProfileName] = useState('');
+
+    useEffect(() => {
+        setProfileName(createRandomName());
+    }, []);
 
     return (
-        <div
-            className="flex flex-1 w-full flex-col justify-between items-center p-5 gap-5"
-        >
-            <p className="w-full sm:w-3/5 text-lg px-2">Your Profie name:</p>
+        <div className="flex flex-1 w-full flex-col justify-between items-center p-5 gap-5">
+            <p className="w-full sm:w-3/5 text-lg px-2">Your Profile name:</p>
 
-            <input
-                type="text"
-                placeholder="Profile Name"
-                className="w-full p-4 py-2 rounded-xl transition-all outline-none hover:scale-105 hover:shadow-md focus:ring-gray-700 focus:ring-1 sm:w-3/5"
-            />
+            <div className='w-full flex justify-center items-center sm:w-3/5'>
+                <input
+                    type="text"
+                    value={profileName}
+                    onChange={(e) => setProfileName(e.target.value)}
+                    placeholder="Profile Name"
+                    className="flex-1 p-4 py-2 rounded-xl transition-all outline-none hover:scale-y-105 hover:shadow-md focus:ring-gray-700 focus:ring-1"
+                />
+                <div
+                    className='rounded-full p-3 text-white bg-[#24292F] ms-2  cursor-pointer hover:bg-[#24292F]/90 hover:shadow-md active:bg-[#24292F]/80' title='Generate random name'
+                    onClick={() => setProfileName(createRandomName())}
+                >
+                    <FaRandom size={20} />
+                </div>
+            </div>
 
             <button
                 type="button"
@@ -43,8 +54,6 @@ function LandingJoiningSections() {
                 >
                     Private Meet
                 </button>
-
-
             </div>
 
             <p
@@ -53,9 +62,18 @@ function LandingJoiningSections() {
             >
                 Get an invite code?
             </p>
-
         </div>
-    )
+    );
+}
+
+function createRandomName() {
+    const firstNames = DummyNames.fistName;
+    const secondNames = DummyNames.secondName;
+
+    const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+    const randomSecondName = secondNames[Math.floor(Math.random() * secondNames.length)];
+
+    return `${randomFirstName} ${randomSecondName}`;
 }
 
 export default LandingJoiningSections;
