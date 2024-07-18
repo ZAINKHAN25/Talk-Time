@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import JoiningImg from "../assets/Join-Img.png";
 
 import { useNavigate } from "react-router-dom"
+import OTPInput from 'react-otp-input';
 
 
 function JoiningPublicMeetComponent() {
 
     const navigateTo = useNavigate();
+    const [otp, setOtp] = useState('');
+
 
     return (
         <div className='flex justify-evenly w-full items-center gap-5 my-5 flex-col flex-wrap-reverse sm:flex-row'>
@@ -14,13 +17,20 @@ function JoiningPublicMeetComponent() {
                 <img src={JoiningImg} className='w-48 m-2 sm:w-96' />
             </div>
             <div>
-                <div className='flex items-center flex-col sm:flex-row my-2'>
+                <div className='flex items-center flex-col gap-3'>
 
-                    <input
-                        type="text"
-                        placeholder="Code"
-                        className="p-4 py-2 my-5 rounded-xl transition-all outline-none hover:scale-105 hover:shadow-md focus:ring-gray-700 focus:ring-1"
-                    />
+                    <div className='flex flex-col'>
+                        <OTPInput
+                            containerStyle={"flex"}
+                            inputStyle={"text-black w-10 h-10 mx-2 text-center rounded-xl transition-all outline-none hover:scale-105 hover:shadow-md focus:ring-gray-700 focus:ring-1 text-lg"}
+                            value={otp}
+                            onChange={(value) => setOtp(value.toUpperCase())}
+                            numInputs={5}
+                            placeholder='XXXXX'
+                            skipDefaultStyles={true}
+                            renderInput={(props) => <input {...props} />}
+                        />
+                    </div>
                     <button
                         type="button"
                         onClick={() => navigateTo('/public/zain')}
@@ -28,12 +38,10 @@ function JoiningPublicMeetComponent() {
                     >
                         Join
                     </button>
+                    <p className="text-center">
+                        Got an invite code? Enter above.
+                    </p>
                 </div>
-                <p
-                    className="text-center"
-                >
-                    Got an invite code? Enter above.
-                </p>
             </div>
         </div>
     )
