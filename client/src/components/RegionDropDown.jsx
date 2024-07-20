@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 function RegionDropDown() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [selectedRegion, setSelectedRegion] = useState('');
+    const regions = ['Pakistan', 'India', 'U K', 'Turkeye'];
 
     useEffect(() => {
         // Retrieve the stored region from localStorage when the component mounts
@@ -40,58 +41,32 @@ function RegionDropDown() {
                     </svg>
                 </button>
             </div>
-            {menuOpen && (
-                <div
-                    className="absolute left-4 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-gray-700 ring-opacity-40 focus:outline-none"
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="menu-button"
-                    tabIndex="-1"
-                >
-                    <div className="py-1 flex-col flex" role="none">
-                        <a
-                            href="#"
-                            className="RegionDropDownLIs"
-                            role="menuitem"
-                            tabIndex="-1"
-                            id="menu-item-0"
-                            onClick={() => handleRegionSelect('Pakistan')}
-                        >
-                            Pakistan
-                        </a>
-                        <a
-                            href="#"
-                            className="RegionDropDownLIs"
-                            role="menuitem"
-                            tabIndex="-1"
-                            id="menu-item-1"
-                            onClick={() => handleRegionSelect('India')}
-                        >
-                            India
-                        </a>
-                        <a
-                            href="#"
-                            className="RegionDropDownLIs"
-                            role="menuitem"
-                            tabIndex="-1"
-                            id="menu-item-2"
-                            onClick={() => handleRegionSelect('U K')}
-                        >
-                            U K
-                        </a>
-                        <a
-                            href="#"
-                            className="RegionDropDownLIs"
-                            role="menuitem"
-                            tabIndex="-1"
-                            id="menu-item-3"
-                            onClick={() => handleRegionSelect('Turkeye')}
-                        >
-                            Turkeye
-                        </a>
+            {
+                menuOpen && (
+                    <div
+                        className="absolute left-4 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-gray-700 ring-opacity-40 focus:outline-none"
+                        role="menu"
+                        aria-orientation="vertical"
+                        aria-labelledby="menu-button"
+                        tabIndex="-1"
+                    >
+                        <div className="py-1 flex-col flex" role="none">
+                            {regions.map((region, index) => (
+                                <a
+                                    href="#"
+                                    className="RegionDropDownLIs"
+                                    role="menuitem"
+                                    tabIndex="-1"
+                                    key={`menu-item-${index}`}
+                                    onClick={() => handleRegionSelect(region)}
+                                >
+                                    {region}
+                                </a>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            )}
+                )
+            }
         </div>
     );
 }
